@@ -1,10 +1,8 @@
-// src/middlewares/auth.middleware.js
-
 const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
 require('dotenv').config();
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your_secret_key_here'; // Use environment variable for JWT_SECRET
+const JWT_SECRET = process.env.JWT_SECRET || 'your_secret_key_here'; 
 
 const authenticateToken = async (req, res, next) => {
   const token = req.header('Authorization');

@@ -1,9 +1,6 @@
-// test/utils/jwt.utils.test.js
-
 const jwt = require('jsonwebtoken');
 const { generateToken, verifyToken } = require('../../src/utils/jwt.utils');
 
-// Mock JWT_SECRET for testing
 const JWT_SECRET = 'your_secret_key_here';
 
 describe('JWT Utils', () => {

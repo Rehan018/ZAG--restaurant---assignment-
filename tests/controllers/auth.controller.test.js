@@ -1,10 +1,6 @@
-// tests/controllers/auth.controller.test.js
-
 const request = require("supertest");
-const app = require("../../src/app"); // Assuming your app is exported from app.js
+const app = require("../../src/app");
 const User = require("../../src/models/user.model");
-
-// Mock user data for testing
 const userData = {
   username: "testuser",
   email: "test@example.com",
@@ -12,18 +8,11 @@ const userData = {
   role: "user",
 };
 
-let server;
-
 describe("Auth Controller", () => {
-  // Hook to run before each test
-
-
   beforeEach(async () => {
-    // Clear the User collection before each test
     await User.deleteMany({});
   });
 
-  // Test for user signup
   describe("POST /api/auth/signup", () => {
     it("should create a new user", async () => {
       const res = await request(app)
@@ -39,9 +28,8 @@ describe("Auth Controller", () => {
     });
   });
 
-  // Test for user signin
+
   describe("POST /api/auth/signin", () => {
-    // First, create a user for testing
     beforeEach(async () => {
       await User.create(userData);
     });
@@ -56,7 +44,7 @@ describe("Auth Controller", () => {
     });
 
     it('should return 404 if user is not found', async () => {
-      await User.deleteMany({}); // Clear all users
+      await User.deleteMany({}); 
     
       const res = await request(app)
         .post('/api/auth/signin')
